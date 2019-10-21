@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/hexgrid/hextileset.gd" type="Script" id=1]
+[ext_resource path="res://addons/hexgrid/hextilemap.png" type="Texture" id=2]
+[ext_resource path="res://assets/Tileset_Hexagonal_PointyTop_60x52_60x80.png" type="Texture" id=3]
+[ext_resource path="res://addons/hexgrid/hextile.gd" type="Script" id=4]
+[ext_resource path="res://addons/hexgrid/hextile.png" type="Texture" id=5]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 0, 13, 30, 0, 60, 13, 60, 38, 30, 51, 0, 38 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ) ]
+outlines = [ PoolVector2Array( 0, 13, 30, 0, 60, 13, 60, 38, 30, 51, 0, 38 ) ]
+
+[sub_resource type="NavigationPolygon" id=2]
+vertices = PoolVector2Array( 0, 13, 30, 0, 60, 13, 60, 38, 30, 51, 0, 38 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ) ]
+outlines = [ PoolVector2Array( 0, 13, 30, 0, 60, 13, 60, 38, 30, 51, 0, 38 ) ]
+
+[node name="HexTileSet" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_icon": ExtResource( 2 )
+}
+SIZE = Vector2( 60, 52 )
+C = 13
+
+[node name="Buildings" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -28 )
+region_enabled = true
+region_rect = Rect2( 180, 160, 60, 80 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+AUTO_NAVIGATION = true
+
+[node name="AutoNavigation" type="NavigationPolygonInstance" parent="Buildings"]
+navpoly = SubResource( 1 )
+
+[node name="Mountain" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -28 )
+region_enabled = true
+region_rect = Rect2( 120, 160, 60, 80 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+AUTO_COLLISION = true
+
+[node name="AutoCollision" type="StaticBody2D" parent="Mountain"]
+
+[node name="Ocean" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -28 )
+region_enabled = true
+region_rect = Rect2( 60, 160, 60, 80 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+AUTO_COLLISION = true
+
+[node name="AutoCollision" type="StaticBody2D" parent="Ocean"]
+
+[node name="Forest" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -28 )
+region_enabled = true
+region_rect = Rect2( 0, 160, 60, 80 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+AUTO_NAVIGATION = true
+
+[node name="AutoNavigation" type="NavigationPolygonInstance" parent="Forest"]
+navpoly = SubResource( 2 )

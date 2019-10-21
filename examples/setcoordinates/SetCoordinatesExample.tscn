@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://examples/setcoordinates/Navigation2D.gd" type="Script" id=1]
+[ext_resource path="res://resources/HexTileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://addons/hexgrid/hextilemap.gd" type="Script" id=3]
+[ext_resource path="res://addons/hexgrid/hextilemap.png" type="Texture" id=4]
+[ext_resource path="res://examples/mouse/MousePlayer.tscn" type="PackedScene" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="HexTileMap" type="TileMap" parent="Navigation2D"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 60, 38 )
+cell_half_offset = 0
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( -65538, 2, 0, -65537, 2, 0, -131072, 2, 0, -131071, 2, 0, -131070, 2, 0, -131069, 2, 0, -131068, 2, 0, -131067, 2, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 0, 0, -65531, 2, 0, 65534, 2, 0, 65535, 0, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 3, 0, 5, 2, 0, 131070, 2, 0, 131071, 3, 0, 65536, 2, 0, 65537, 2, 0, 65538, 0, 0, 65539, 3, 0, 65540, 2, 0, 65541, 2, 0, 196606, 2, 0, 196607, 2, 0, 131072, 0, 0, 131073, 2, 0, 131074, 3, 0, 131075, 2, 0, 131076, 2, 0, 131077, 2, 0, 262142, 2, 0, 262143, 2, 0, 196608, 3, 0, 196609, 3, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 327678, 2, 0, 327679, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_icon": ExtResource( 4 )
+}
+TILE_SIZE = Vector2( 60, 52 )
+TILE_C = 13
+
+[node name="Player" parent="Navigation2D" instance=ExtResource( 5 )]
+position = Vector2( -34.1207, 21.9398 )
+
+[node name="Line2D" type="Line2D" parent="Navigation2D"]
+texture_mode = -1084227586

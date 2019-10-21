@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/HexTileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://addons/hexgrid/hextilemap.gd" type="Script" id=2]
+[ext_resource path="res://addons/hexgrid/hextilemap.png" type="Texture" id=3]
+[ext_resource path="res://examples/keyboard/KeyboardPlayer.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="HexTileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 60, 38 )
+cell_half_offset = 0
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( -65538, 2, 0, -65537, 2, 0, -131072, 2, 0, -131071, 2, 0, -3, 2, 0, -2, 3, 0, -1, 3, 0, -65536, 3, 0, -65535, 2, 0, 65534, 2, 0, 65535, 0, 0, 0, 0, 0, 1, 2, 0, 131069, 2, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 2, 0, 196606, 2, 0, 196607, 2, 0, 131072, 2, 0, 131073, 2, 0 )
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_icon": ExtResource( 3 )
+}
+TILE_SIZE = Vector2( 60, 52 )
+TILE_C = 13
+
+[node name="KeyboardPlayer" parent="." instance=ExtResource( 4 )]
+position = Vector2( -68.4833, -8.67455 )
+scale = Vector2( 0.999994, 0.999994 )
